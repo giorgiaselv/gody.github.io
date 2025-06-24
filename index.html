@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MEMENTO GODY – The Pop-Up Experience</title>
+  <style>
+    body {
+      background: #33004d;
+      color: #ceed51;
+      font-family: 'Tisa Pro', serif;
+      text-align: center;
+      padding: 2rem;
+      max-width: 700px;
+      margin: auto;
+    }
+    h1 {
+      color: #b31e5c;
+      font-family: 'Cooper Black', serif;
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+    }
+    h2 {
+      font-family: 'Cooper Black', serif;
+      font-size: 1.5rem;
+      margin-top: 2rem;
+      color: #b31e5c;
+    }
+    p {
+      font-size: 1.1rem;
+      line-height: 1.6;
+    }
+    .info {
+      background: #b31e5c;
+      padding: 1rem;
+      border-radius: 12px;
+      margin: 1.5rem 0;
+    }
+    .button {
+      display: inline-block;
+      background: #ceed51;
+      color: #33004d;
+      font-weight: bold;
+      padding: 1rem 2rem;
+      margin-top: 1rem;
+      border-radius: 30px;
+      text-decoration: none;
+      transition: background 0.3s;
+    }
+    .button:hover {
+      background: #f72585;
+    }
+    .hashtag {
+      font-family:'Tisa Pro', serif;
+      color: #b31e5c;
+    }
+    .section-img {
+      margin: 2rem 0;
+    }
+    .section-img img {
+      width: 100%;
+      border-radius: 16px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    }
+    iframe {
+      width: 100%;
+      height: 300px;
+      border: none;
+      border-radius: 16px;
+      margin-top: 1rem;
+    }
+  </style>
+<script>
+  const openingDate = new Date('2025-07-12T19:00:00');
+
+  function updateCountdown() {
+    const now = new Date();
+    const diff = openingDate - now;
+    const countdown = document.getElementById("countdown");
+    if (diff <= 0) {
+      countdown.innerHTML = "VENUTO!";
+      return;
+    }
+    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+    const minutes = Math.floor((diff / (1000 * 60)) % 60);
+    const seconds = Math.floor((diff / 1000) % 60);
+    countdown.innerHTML = `⏳ Tra ${days}g ${hours}h ${minutes}m ${seconds}s vieni a mordermi... o mordimi e vieni`;
+  }
+  setInterval(updateCountdown, 1000);
+
+  window.addEventListener('DOMContentLoaded', () => {
+    const audio = document.getElementById('godyAudio');
+    const btn = document.querySelector('button[onclick="toggleAudio()"]');
+
+    const tryPlay = () => {
+      if (audio.paused) {
+        audio.play().catch(() => {});
+      }
+    };
+
+    tryPlay();
+    document.body.addEventListener('click', tryPlay, { once: true });
+    document.body.addEventListener('touchstart', tryPlay, { once: true });
+
+    window.toggleAudio = function () {
+      if (audio.paused) {
+        audio.play();
+        btn.textContent = "🔇 Pausa";
+      } else {
+        audio.pause();
+        audio.currentTime = 0;
+        btn.textContent = "🎶🎵🎶";
+      }
+    };
+  });</script>
+<audio id="godyAudio" loop>
+  <source src="pornhub_intro_music.mp3" type="audio/mpeg">
+</audio>
+
+</head>
+<body>
+  
+  <h1>MEMENTO GODY – THE POP-UP EXPERIENCE</h1>
+<div id="countdown" style="font-size: 1.2rem; margin: 1rem 0; color: #ceed51;"></div>
+<button onclick="toggleAudio()" class="button" style="margin-top: 0.5rem;">🎶🎵🎶</button>
+  <p><strong>⚠️ Il panino più intenso di tutte le terre emerse arriva in città.</strong></p>
+
+  
+
+  <div class="info">
+    <p><strong>📍 Dove:</strong> Largo Luigi Giannella, [Bari]</p>
+    <p><strong>🗓️ Quando:</strong> Dal [12/07] al [18/07]</p>
+    <p><strong>⌚ Orari:</strong> Tutti i giorni, 11:00 – 22:00</p>
+  </div>
+
+  <h2>🗺️ COME ARRIVARE</h2>
+  <p>Ci trovi qui:</p>
+  <iframe src="https://www.google.com/maps?q=41.1253,16.8667&z=15&output=embed" allowfullscreen=""></iframe>
+
+  <h2>🫦 COSA TI ASPETTA</h2>
+  <p>
+    – Un assaggio esclusivo del panino <strong>GODY</strong><br />
+    – Visual art & neon vibes in puro <strong>'70s style</strong><br />
+    – Un'atmosfera sfacciata<br />
+    – Gadget limited edition e sorprese… molto poco castigate
+  </p>
+
+  <h2>📸 TAGGACI SU INSTAGRAM!</h2>
+  <p>
+    Mostra la tua esperienza GODY.<br />
+    <span class="hashtag">#MementoGODY</span><br />
+    I contenuti migliori finiranno sul nostro profilo 🩷
+  </p>
+
+  <h2>🎟️ PRENOTA IL TUO INGRESSO GRATUITO</h2>
+  <p><strong>⚡ I posti sono limitati!</strong></p>
+  <a href="https://example.com/prenota" class="button">PRENOTA ORA</a>
+
+  <h2 style="margin-top: 3rem;">🔞 RIEMPI. ASSAPORA. GODY.</h2>
+  <p><strong>MEMENTO GODY</strong></p>
+<!-- Modal Social -->
+<div id="socialModal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:#33004de6; z-index:1000; text-align:center; padding-top:10%;">
+  <div style="background:#fff; color:#33004d; padding:2rem; margin:auto; width:80%; max-width:400px; border-radius:20px; box-shadow:0 0 20px #b31e5c;">
+    <h2> Condividi GODY</h2>
+    <p><strong>Fatto in compagnia è più divertente.<p><strong>
+    <a href="https://www.instagram.com/stories/create/" target="_blank" class="button" style="margin-bottom:1rem;">📸 Condividi su Instangram</a><br/>
+    <a href="https://wa.me/?text=MEMENTO%20GODY%20ti%20aspetta%20al%20popup%20experience%20a%20Bari%20dal%2012%20al%2018%20luglio%21" target="_blank" class="button">📲 Invia su WhatsApp</a><br/>
+    <button onclick="document.getElementById('socialModal').style.display='none'" class="button" style="margin-top:1rem;">Chiudi</button>
+  </div>
+</div>
+
+<!-- Bottone per mostrare il modal -->
+<button onclick="document.getElementById('socialModal').style.display='block'" class="button" style="position:fixed; bottom:20px; right:20px; z-index:999;">💌 Condividi</button>
+
+
+
+</body>
+</html>
